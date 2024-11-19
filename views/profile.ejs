@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <title>Privacy Audit Tool</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <div class="profile-container">
+          <h1>Welcome, <%= user.name %>!</h1>
+      
+          <button id="testButton">Test Your Privacy Knowledge</button>
+      
+          <% if (testResult) { %>
+              <div class="test-result">
+                  <h2>Your Privacy Knowledge Score: <%= testResult.score %></h2>
+                  <p><%= testResult.score >= 8 ? 'You are very knowledgeable about digital privacy!' : 'You could improve your digital privacy knowledge.' %></p>
+                  <button id="redoTestButton">Redo Test</button>
+                  <form id="deleteTestForm" action="/deleteTest" method="POST">
+                      <button type="submit">Delete Test Results</button>
+                  </form>
+              </div>
+          <% } %>
+      
+      </div>
+      
+
+          
+</div>
+
+<script src="/main.js"></script>
+
+</body>
+</html>
